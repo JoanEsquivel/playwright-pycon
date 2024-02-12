@@ -1,0 +1,62 @@
+# Virtual environemnts (MacOS):
+
+Requirements:
+
+- Python3
+- Pip3
+- $ brew install python3 #upgrade
+- Pip3 is installed with Python3
+
+## Installation
+
+To install virtualenv via pip run:
+
+```$ pip3 install virtualenv```
+
+## Usage
+
+Creation of virtualenv:
+
+```$ python3 -m venv playwright-python```
+
+Activate the virtualenv:
+
+```$ source <desired-path>/bin/activate```
+Deactivate the virtualenv:
+
+```$ deactivate```
+
+# How to install Playwright + Python for the first time?
+
+## Install packages
+
+```pip install playwright```
+```pip install pytest```
+```pip install pytest-playwright```
+
+## Install browsers
+
+```playwright install```
+
+## To install the requirements(dependencies)
+
+```pip install -r requirements.txt```
+
+
+# Run tests (different approaches)
+
+``` python3 -m pytest tests ```
+``` python3 -m pytest tests --headed --slowmo 1000 ```
+``` python3 -m pytest tests --headed --slowmo 1000 --browser chromium```
+``` python3 -m pytest tests --headed --slowmo 1000 --browser firefox ```
+``` python3 -m pytest tests --headed --slowmo 1000 --browser webkit ```
+### Execute in multiple browsers
+``` python3 -m pytest tests --headed --slowmo 1000 --browser chromium --browser firefox --browser webkit --verbose```
+## Stock browsers
+``` python3 -m pytest tests --headed --slowmo 1000 --browser-channel chrome ```
+## Emulate mobile to test responsive layouts
+``` python3 -m pytest tests --headed --slowmo 1000 --browser webkit --device "iPhone 11" ```
+``` python3 -m pytest tests --browser-channel chrome --screenshot on ```
+``` python3 -m pytest tests --screenshot only-on-failure ```
+``` python3 -m pytest tests --video on ```
+``` python3 -m pytest tests --video retain-on-failure ```
