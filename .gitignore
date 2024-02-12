@@ -9,6 +9,9 @@ __pycache__/
 #Pytest
 .pytest_cache
 
+#Playwright
+test-results
+
 #venv
 playwright-python
 
