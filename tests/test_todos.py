@@ -5,10 +5,10 @@
 from playwright.sync_api import expect,Page
 from pages.todo_page import TodoPage
 
-def test_add_new_todo(page: Page) -> None:
+def test_add_new_todo(page: Page,) -> None:
 
     # Given I am on the todo list page
-    page.goto('https://demo.playwright.dev/todomvc/#/')
+    page.goto('/todomvc/#/')
     # When the user enters "Buy milk" into the add item input
     page.locator('.new-todo').fill('Buy milk')
     # And the user press the "enter" keyboard
@@ -22,9 +22,9 @@ def test_add_new_todo_pom(page: Page) -> None:
     todo_page.add_todo('Buy milk')
     expect(todo_page.todo_item).to_have_text('Buy milk')
 
-def test_add_new_todo_pom_fixture(page: Page, load_json_data) -> None:
-    data = load_json_data("data/todos.json")
+def test_add_new_todo_pom_fixture(page: Page, load_todo) -> None:
+    todo = load_todo('todo1')
     todo_page = TodoPage(page)
     todo_page.load()
-    todo_page.add_todo(data['todo'])
-    expect(todo_page.todo_item).to_have_text(data['todo'])
+    todo_page.add_todo(todo)
+    expect(todo_page.todo_item).to_have_text(todo)
