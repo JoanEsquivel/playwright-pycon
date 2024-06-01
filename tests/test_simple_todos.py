@@ -7,12 +7,12 @@ from playwright.sync_api import expect,Page
 def test_add_new_todo(page: Page,) -> None:
     # Given I am on the todo list page
     page.goto('/todomvc/#/')
-    # When the user enters "Buy milk" into the add item input
+    # When the user enters "Asistir a PyCon" into the add item input
     # page.locator('.new-todo').fill('Asistir a PyCon')
     page.get_by_role('textbox', name="What needs to be done?").fill('Asistir a PyCon')
     # And the user press the "enter" keyboard
     page.keyboard.press('Enter')
-    # Then "Buy milk" should be added to the list
+    # Then "Asistir a PyCon" should be added to the list
     # https://playwright.dev/python/docs/test-assertions
     expect(page.locator('[data-testid="todo-title"]')).to_have_text('Asistir a PyCon') 
 
