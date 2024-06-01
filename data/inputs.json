@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "username": "joan.esquim@gmail.com",
+      "password": "hiPycon2024"
+    },
+    {
+      "username": "engineer@test.com",
+      "password": "test1234"
+    }
+  ],
+  "todos": {
+    "todo1": "Asistir a PyCon",
+    "todo2": "Estudiar Python"
+  }
+}
