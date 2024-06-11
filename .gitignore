@@ -12,6 +12,9 @@ __pycache__/
 #Playwright
 test-results
 
+#Ruff
+.ruff_cache
+
 #venv
 playwright-python
 
