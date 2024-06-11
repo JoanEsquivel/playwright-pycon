@@ -3,9 +3,6 @@ import pytest
 
 from playwright.sync_api import Playwright
 
-#HELPERS 
-
-# _build_todo function to handle the dictionary structure of the todos
 def _returnTodoByKey(data, key):
     assert 'todos' in data, "inputs are missing 'todos' key"
     todos = data['todos']
