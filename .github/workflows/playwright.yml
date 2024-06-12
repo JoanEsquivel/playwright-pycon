@@ -5,7 +5,12 @@ on:
   pull_request:
     branches: [ '**' ]
 jobs:
-  test:
+  ruff-lint-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: chartboost/ruff-action@v1
+  test-execution:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
