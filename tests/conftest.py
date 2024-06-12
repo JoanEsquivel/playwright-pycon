@@ -1,11 +1,10 @@
 import json
 import pytest
 
-from playwright.sync_api import Playwright
 
-def _returnTodoByKey(data, key):
-    assert 'todos' in data, "inputs are missing 'todos' key"
-    todos = data['todos']
+def return_todo_by_key(data, key):
+    assert "todos" in data, "inputs are missing 'todos' key"
+    todos = data["todos"]
 
     assert key in todos, f"key {key} is not found in input 'todos'"
 
@@ -14,14 +13,15 @@ def _returnTodoByKey(data, key):
 
 
 @pytest.fixture(scope="session")
-def loadData():
-    with open('data/inputs.json') as inputs_json:
+def load_data():
+    with open("data/inputs.json") as inputs_json:
         data = json.load(inputs_json)
     return data
 
 
 @pytest.fixture
-def load_todo(loadData):
+def load_todo(load_data):
     def _loader(key):
-        return _returnTodoByKey(loadData, key)
+        return return_todo_by_key(load_data, key)
+
     return _loader

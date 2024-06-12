@@ -71,3 +71,7 @@ Deactivate the virtualenv:
 ` python3 -m pytest tests --headed --slowmo 1000 --browser chromium --tracing on`
 
 `playwright show-trace test-results/tests-test-todos-py-test-add-new-todo-chromium/trace.zip`
+
+# Ruff commands for lint & format
+` ruff check . `
+` ruff format . `
