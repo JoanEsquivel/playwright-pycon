@@ -23,7 +23,7 @@ jobs:
     - name: Set PYTHONPATH
       run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
     - name: Run your tests
-      run: pytest --tracing=retain-on-failure
+      run: pytest --base-url https://demo.playwright.dev --tracing=retain-on-failure
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
