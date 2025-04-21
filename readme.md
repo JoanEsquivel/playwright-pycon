@@ -46,31 +46,31 @@ Deactivate the virtualenv:
 
 # Run tests (different approaches)
 
-`python3 -m pytest tests`
-`python3 -m pytest tests --headed --slowmo 1000`
-` python3 -m pytest tests --headed --slowmo 1000 --browser chromium`
-`python3 -m pytest tests --headed --slowmo 1000 --browser firefox`
-`python3 -m pytest tests --headed --slowmo 1000 --browser webkit`
+`python -m pytest tests`
+`python -m pytest tests --headed --slowmo 1000`
+` python -m pytest tests --headed --slowmo 1000 --browser chromium`
+`python -m pytest tests --headed --slowmo 1000 --browser firefox`
+`python -m pytest tests --headed --slowmo 1000 --browser webkit`
 
 ### Execute in multiple browsers
 
-` python3 -m pytest tests --headed --slowmo 1000 --browser chromium --browser firefox --browser webkit --verbose`
+` python -m pytest tests --headed --slowmo 1000 --browser chromium --browser firefox --browser webkit --verbose`
 
 ## Stock browsers
 
-`python3 -m pytest tests --headed --slowmo 1000 --browser-channel chrome`
+`python -m pytest tests --headed --slowmo 1000 --browser-channel chrome`
 
 ## Emulate mobile to test responsive layouts
 
-`python3 -m pytest tests --headed --slowmo 1000 --browser webkit --device "iPhone 11"`
-`python3 -m pytest tests --browser-channel chrome --screenshot on`
-`python3 -m pytest tests --screenshot only-on-failure`
-`python3 -m pytest tests --video on`
-`python3 -m pytest tests --video retain-on-failure`
+`python -m pytest tests --headed --slowmo 1000 --browser webkit --device "iPhone 11"`
+`python -m pytest tests --browser-channel chrome --screenshot on`
+`python -m pytest tests --screenshot only-on-failure`
+`python -m pytest tests --video on`
+`python -m pytest tests --video retain-on-failure`
 
 ## How to trace your execution?
 
-` python3 -m pytest tests --headed --slowmo 1000 --browser chromium --tracing on`
+` python -m pytest tests --headed --slowmo 1000 --browser chromium --tracing on`
 
 `playwright show-trace test-results/tests-test-todos-py-test-add-new-todo-chromium/trace.zip`
 
