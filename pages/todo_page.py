@@ -1,19 +1,17 @@
 from playwright.sync_api import Page
 
-
 class TodoPage:
-    URL = "/todomvc/#/"
-
     def __init__(self, page: Page) -> None:
         self.page = page
-        # Atributos
         self.todo_input = page.locator(".new-todo")
-        self.todo_item = page.locator('[data-testid="todo-title"]')
 
-    # Comportamientos
-    def load(self) -> None:
-        self.page.goto(self.URL)
+    @property
+    def todo_items(self):
+        return self.page.locator('[data-testid="todo-title"]')
 
-    def add_todo(self, todo: str) -> None:
+    def load(self):
+        self.page.goto("/todomvc/#/")
+
+    def add_todo(self, todo: str):
         self.todo_input.fill(todo)
         self.page.keyboard.press("Enter")
