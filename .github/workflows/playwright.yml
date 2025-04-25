@@ -65,4 +65,4 @@ jobs:
       - name: Summary in GitHub Actions
         if: ${{ always() }}
         run: |
-          echo "### ✅ Playwright tests completed successfully on Python 3.11" >> $GITHUB_STEP_SUMMARY
+          echo "### ✅ Playwright tests completed successfully on Python 3.13" >> $GITHUB_STEP_SUMMARY
