@@ -27,4 +27,5 @@ def load_data():
 def load_todo(load_data):
     def _loader(key):
         return get_todo_by_key(load_data, key)
+
     return _loader
