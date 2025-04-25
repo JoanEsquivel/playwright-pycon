@@ -11,7 +11,9 @@ jobs:
     name: Lint Python Code with Ruff
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Run Ruff linter
         uses: chartboost/ruff-action@v1
 
@@ -19,9 +21,9 @@ jobs:
     name: Run Playwright Tests
     runs-on: ubuntu-22.04
     timeout-minutes: 60
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
@@ -35,30 +37,4 @@ jobs:
           python -m playwright install --with-deps
 
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
-
-      - name: Run Playwright Tests with Pytest
-        run: |
-          pytest \
-            --base-url https://demo.playwright.dev \
-            --tracing=retain-on-failure \
-            --tb=short \
-            --maxfail=5 \
-            --junitxml=test-results/results.xml
-
-      - name: Upload Playwright Traces
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-traces
-          path: test-results/
-
-      - name: Upload JUnit XML Report
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: junit-report
-          path: test-results/results.xml
-
-      - name: Summary in GitHub Actions
-        if: ${{ always() }}
+        run: echo "PYTHONPATH
